@@ -1,0 +1,13 @@
+<div >
+    <form action=""  [formGroup]="userForm" (ngSubmit)="addValue()" >
+        <!--------------------------------------------------------------------------------------->
+        <div class="input-group mb-3">
+            <input type="number" max="100" min="0" class="form-control" formControlName="entier"  placeholder="nbre entier" >
+            <button  type="submit"  class="btn btn-success col-sm">convertir</button> 
+        </div>
+        
+   </form>
+   <p><span>{{chffer_romain}}</span></p>
+   <p>...</p>
+   <p><span>{{romain}}</span></p>
+</div>
