@@ -1,25 +1,37 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
+import { SSEService } from './sse.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyserviceService {
   private apiServiceUrl=environment.baseUrl;
-  constructor (private http?:HttpClient){}
+  constructor (private ngZone:NgZone,private sseService:SSEService,private http?:HttpClient){}
 
-
-public getValues(): Observable<any[]>{
-    return this.http!.get<any[]>(`${this.apiServiceUrl}`);
-}
 
 public getId(id: String): Observable<any>{
   return this.http!.get<any>(`${this.apiServiceUrl}get/`+id);
 }
 
-public addValue(v: any): Observable<any>{
-  return this.http!.post(`${this.apiServiceUrl}api/add`, v);
+getSSE(url:string){
+  
+  return new Observable((observer: Observer<any>) => {
+    const eventSource= this.sseService.getEventSource(url);
+   eventSource.onmessage=event=>{
+      this.ngZone.run(()=>{
+        observer.next(event);
+        console.log("event "+event)
+      });
+   }
+   eventSource.onerror=event=>{
+    this.ngZone.run(()=>{
+      observer.error(event);
+      console.log("event error "+event)
+    });
+ }
+});
 }
 }

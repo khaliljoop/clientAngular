@@ -13,25 +13,28 @@ export class AppComponent implements OnInit {
   title = 'intToRomain';
 
   constructor(private formBuilder:FormBuilder,private service:MyserviceService){}
-  
   userForm!: FormGroup;
-  //@Input() romain$!: Observable<any>;
-  romain=""
+  romain!:string;
   values:Convert[]=[]
   chffer_romain=""
   ngOnInit(): void {
 
     this.initForm();
-    this.service.getValues().subscribe({
-      next:(res)=>{
-        if(this)
-          this.romain=res[0].romain
-         
-      }
-    })
+    this.getmessage();
+   
   }
 
-  
+  getmessage(){
+    this.service.getSSE("http://localhost:8000").subscribe({
+      next:(data)=>{
+        this.romain=data.data;
+        console.log("sending sse...",data)
+      },
+      error:(e)=>{
+        console.log("sending sse error...",e)
+      }
+    });
+  }
   initForm()
   {
     this.userForm=this.formBuilder.group({
