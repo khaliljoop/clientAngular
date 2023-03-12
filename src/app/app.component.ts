@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Convert } from './convert.=model';
 import { MyserviceService } from './myservice.service';
-import { interval, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -47,9 +46,11 @@ export class AppComponent implements OnInit {
     var v=form['entier'];
     this.service.getId(v).subscribe({
       next:(res)=>{
+        console.log("res.........",res)
         this.values=res;
         this.chffer_romain=this.values[0].romain
       }
     });
   }
+  
 }

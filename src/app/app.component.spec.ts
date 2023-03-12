@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -31,5 +32,18 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('intToRomain app is running!');
+  });
+
+  // ajout de nouveau test
+  it('appel addValue', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+   const app = fixture.componentInstance;
+   spyOn(app,"addValue").and.callFake(() => {
+    return of({
+      "statusCode" : 200
+    });
+  })
+  app.addValue();
+  expect(app.chffer_romain).toBeNaN();
   });
 });
