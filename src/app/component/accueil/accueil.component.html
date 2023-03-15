@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE client</title>
+</head>
+<body>
+    <div >
+        <form action=""  [formGroup]="userForm" (ngSubmit)="addValue()" >
+            <!--------------------------------------------------------------------------------------->
+            <div class="input-group mb-3">
+                <input type="number" max="100" min="0" class="form-control" formControlName="entier"  placeholder="nbre entier" >
+                <button  type="submit"  class="btn btn-success col-sm">convertir</button> 
+            </div>
+            
+       </form>
+       <p><span>Resultat : {{chffer_romain}}</span></p>
+      
+    </div>
+    <div id="messages"></div>
+    <p><span>message from SSE : {{romain}}</span></p>
+</body>
+</html>
+

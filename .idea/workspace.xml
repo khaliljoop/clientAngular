@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01e155e7-1a49-4196-ad03-132cefd41da3" name="Changes" comment="add client angular 6">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="01e155e7-1a49-4196-ad03-132cefd41da3" name="Changes" comment="add client angular 6" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,7 +180,7 @@
       <workItem from="1678291247232" duration="2712000" />
       <workItem from="1678294210582" duration="2239000" />
       <workItem from="1678313443161" duration="31000" />
-      <workItem from="1678455216790" duration="1268000" />
+      <workItem from="1678455216790" duration="1464000" />
     </task>
     <task id="LOCAL-00001" summary="add client angular">
       <created>1678294486753</created>
@@ -205,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678456083307</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add client angular 6">
+      <created>1678584310232</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678584310232</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
